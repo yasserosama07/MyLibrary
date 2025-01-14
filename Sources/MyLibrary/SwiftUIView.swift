@@ -21,6 +21,9 @@ public struct SwiftUIView: View {
             .background(viewModel.color)
             .foregroundColor(.white)
             .cornerRadius(10)
+        Image(systemName: "person.2.circle.fill")
+            .font(.largeTitle)
+            .foregroundStyle(.red)
     }
 }
 
