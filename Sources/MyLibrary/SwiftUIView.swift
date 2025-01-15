@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 public struct SwiftUIView: View {
     
@@ -24,6 +25,7 @@ public struct SwiftUIView: View {
         Image(systemName: "person.2.circle.fill")
             .font(.largeTitle)
             .foregroundStyle(.red)
+        LottieView(animation: .named("StarAnimation"))
     }
 }
 
