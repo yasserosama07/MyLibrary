@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Lottie
+import FirebaseCrashlytics
 
 public struct SwiftUIView: View {
     
@@ -26,6 +27,14 @@ public struct SwiftUIView: View {
             .font(.largeTitle)
             .foregroundStyle(.red)
         LottieView(animation: .named("StarAnimation"))
+        Button("Button") {
+            someFunction()
+        }
+    }
+    
+    func someFunction() {
+        let x: Int? = nil
+        print(x!)
     }
 }
 
