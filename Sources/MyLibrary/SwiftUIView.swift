@@ -27,14 +27,33 @@ public struct SwiftUIView: View {
             .font(.largeTitle)
             .foregroundStyle(.red)
         LottieView(animation: .named("StarAnimation"))
-        Button("Button") {
-            someFunction()
+            .frame(width: 200, height: 200)
+            .background(.red)
+            .clipShape(Circle())
+        HStack {
+            Button("Button") {
+                someFunction()
+            }
+            Button("Fatal error") {
+                fatalError("Test crash")
+            }
+            Button("Log error") {
+                logError(NSError(domain: "Test", code: 1, userInfo: nil))
+            }
         }
     }
     
     func someFunction() {
         let x: Int? = nil
         print(x!)
+    }
+    
+    public func logError(_ error: Error) {
+        Crashlytics.crashlytics().record(error: error)
+    }
+
+    public func logMessage(_ message: String) {
+        Crashlytics.crashlytics().log(message)
     }
 }
 
