@@ -21,10 +21,10 @@ for PLATFORM in "iOS" "iOS Simulator"; do
     ARCHIVE_PATH=$RELEASE_FOLDER
 
     # Rewrite Package.swift so that it declaras dynamic libraries, since the approach does not work with static libraries
-    perl -i -p0e 's/type: .static,//g' Package.swift
-    perl -i -p0e 's/type: .dynamic,//g' Package.swift
-    perl -i -p0e 's/(library[^,]*,)/$1 type: .dynamic,/g' Package.swift
-
+#    perl -i -p0e 's/type: .static,//g' Package.swift
+#    perl -i -p0e 's/type: .dynamic,//g' Package.swift
+#    perl -i -p0e 's/(library[^,]*,)/$1 type: .dynamic,/g' Package.swift
+#    OTHER_SWIFT_FLAGS="-no-verify-emitted-module-interface" // add this in xcodebuild command
     xcodebuild archive -workspace . -scheme $NAME \
             -destination "generic/platform=$PLATFORM" \
             -archivePath $ARCHIVE_PATH \

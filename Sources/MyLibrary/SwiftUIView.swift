@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Lottie
-import FirebaseCrashlytics
 
 public struct SwiftUIView: View {
     
@@ -37,23 +36,12 @@ public struct SwiftUIView: View {
             Button("Fatal error") {
                 fatalError("Test crash")
             }
-            Button("Log error") {
-                logError(NSError(domain: "Test", code: 1, userInfo: nil))
-            }
         }
     }
     
     func someFunction() {
         let x: Int? = nil
         print(x!)
-    }
-    
-    public func logError(_ error: Error) {
-        Crashlytics.crashlytics().record(error: error)
-    }
-
-    public func logMessage(_ message: String) {
-        Crashlytics.crashlytics().log(message)
     }
 }
 
